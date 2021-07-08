@@ -1,12 +1,12 @@
-var fs = require('fs-extra');
-var path = require('path');
-var walk = function(dir, done) {
-	var results = [];
+const fs = require('fs-extra');
+const path = require('path');
+const walk = function(dir, done) {
+	let results = [];
 	fs.readdir(dir, function(err, list) {
 		if (err) return done(err);
-		var i = 0;
+		let i = 0;
 		(function next() {
-			var file = list[i++];
+			let file = list[i++];
 			if (!file) return done(null, results);
 			file = path.resolve(dir, file);
 			fs.stat(file, function(err, stat) {
